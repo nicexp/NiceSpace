@@ -325,6 +325,42 @@
 					</div>
 				</div>
 			</div>
+			<div class="article-new content-child">
+				<div class="content-box">
+					<div class="article-type">他山之石</div>
+					<div class="article-img">
+						<a href="#">
+							<img src="articleimgs/1.jpg" alt="致盗版用户的忠告">
+						</a>
+					</div>
+					<div class="article-content">
+						<h2><a href="#">致盗版用户的忠告</a></h2>
+						<div class="content-text">
+							Grace主题，凝聚了我和小伙伴们众多的心血和精力，从设计、编写代码、到最后发布销售整整耗时3个月。 在发布以来也收到众…
+						</div>
+						<div class="article-info default-info">
+							<span class="post-type">
+								<i class="fa fa-server"></i>
+								转载
+							</span>
+							<span class="post-time">
+								<i class="fa fa-clock-o"></i>
+								2017-04-01
+							</span>
+							<span class="post-view">
+								<i class="fa fa-eye"></i>
+								1513
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="page-nav">
+			<span class="page-nums current-page">1</span>
+			<a class="page-nums" href="#">2</a>
+			<a class="page-nums" href="#">3</a>
+			<a class="page-nums" href="#">></a>
 		</div>
 	</div>
 	<div class="side">
@@ -671,5 +707,12 @@
 
 <script type="text/javascript">var anbgColor = "#F7FAFC", anbgSpeed = "10", anbgPnum = 45;</script>
 <script type="text/javascript" src="js/animatebg.js"></script>
+<script type="text/javascript" src="js/flowup.js"></script>
+<script>
+$(function(){
+	$("body").flowUp("div.side-widget", { transalteY: 350, duration: 1 });
+	$("body").flowUp("div.content-child", { transalteY: 350, duration: 1 });
+});
+</script>
 </body>
 </html>
