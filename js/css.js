@@ -80,3 +80,71 @@ $(document).ready(function(){
 		})
 });
 
+
+function getcurindex()
+{
+	var nowindex = 0
+	for(i = 0; i < 3; i++)
+	{
+		var child =  $(".screen .screen-child:nth-child(" + (i+1) + ")");
+		if(child.hasClass("current-screen"))
+		{
+			nowindex = i;
+		}
+	}
+	return nowindex;
+}
+
+function showindex(nowindex)
+{
+    var index = nowindex+1;
+    $(".screen .screen-child:nth-child(" + index + ")").addClass("current-screen").siblings(".screen-child").removeClass("current-screen");
+    $(".bottom-btn span:nth-child(" + index + ")").addClass("current-bottom-btn").siblings("span").removeClass("current-bottom-btn");
+}
+
+function autoshowindex()
+{
+	var nowindex = getcurindex() + 1;
+	if (nowindex < 0 || nowindex > 2)
+	{
+       	nowindex = 0;
+    }
+	showindex(nowindex);
+    setTimeout("autoshowindex();", 5000);
+}
+
+$(document).ready(function(){
+
+	$(".screen .screen-child:first").addClass("current-screen");
+	$(".bottom-btn span:first").addClass("current-bottom-btn");
+	
+	$(".screen .pre-btn").click(function(){
+		var nowindex = getcurindex() - 1;
+		if (nowindex < 0)
+		{
+       		nowindex = 2;
+    	}
+		showindex(nowindex);
+	});
+
+	$(".screen .next-btn").click(function(){
+		var nowindex = getcurindex() + 1;
+		if (nowindex > 2)
+		{
+       		nowindex = 0;
+    	}
+		showindex(nowindex);
+	});
+
+	$(".bottom-btn span").click(function(){
+		var classname = $(this).attr("class");
+		var index = parseInt(classname.substr(-1,1));
+		var nowindex = getcurindex();
+		if((!isNaN(index)) && (index != nowindex-1))
+		{
+			showindex(index-1);
+		}
+	});
+
+	setTimeout("autoshowindex();", 5000);
+});
